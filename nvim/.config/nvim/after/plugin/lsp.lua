@@ -1,7 +1,7 @@
 ---
 -- LSP configuration
 ---
-local lsp_zero = require('lsp-zero')
+local lsp = require('lsp-zero')
 
 local lsp_attach = function(client, bufnr)
   local opts = {buffer = bufnr}
@@ -18,19 +18,10 @@ local lsp_attach = function(client, bufnr)
   vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
 end
 
-lsp_zero.extend_lspconfig({
+lsp.extend_lspconfig({
   sign_text = true,
   lsp_attach = lsp_attach,
   capabilities = require('cmp_nvim_lsp').default_capabilities(),
-})
-
--- Rust, TypeScript, and ESLint language servers setup
-require('lspconfig').rust_analyzer.setup({
-  on_attach = lsp_attach,
-})
-
-require('lspconfig').eslint.setup({
-  on_attach = lsp_attach,
 })
 
 ---
@@ -69,3 +60,8 @@ cmp.setup({
   }),
 })
 
+lsp.setup()
+
+vim.diagnostic.config({
+    virtual_text = true
+})
