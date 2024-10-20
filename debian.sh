@@ -1,6 +1,12 @@
 #!/bin/bash
 
-DEPENDENCIES=("nvim" "clang")  
+DEPENDENCIES=(
+        "sed"
+        "stow"
+        "nvim"
+        "tmux"
+        "clang"
+) 
 
 for d in ${DEPENDENCIES[@]};
 do
@@ -8,9 +14,11 @@ do
         then
                 apt install $d
                 printf "\n$d installed\n"
+                echo "*************************"
         else
                 printf "\n$d already installed:\n"
                 $d --version
+                echo "-------------------------"
         fi
 done
 
