@@ -28,7 +28,7 @@ lsp.extend_lspconfig({
 -- Autocompletion setup
 ---
 local cmp = require('cmp')
- 
+
 cmp.setup({
   sources = {
     {name = 'nvim_lsp'},
