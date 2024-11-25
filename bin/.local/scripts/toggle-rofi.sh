@@ -1,6 +1,7 @@
 #!/bin/sh
+
 if pgrep -x rofi; then
     killall rofi
 else
-    rofi -show drun -normal-window -steal-focus
+    rofi rofi -show drun -show-icons -steal-focus &
 fi
