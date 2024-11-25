@@ -6,6 +6,7 @@ DEPENDENCIES=(
         "nvim"
         "tmux"
         "clang"
+        "rofi"
 ) 
 
 for d in ${DEPENDENCIES[@]};
