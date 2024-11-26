@@ -5,6 +5,7 @@ require('mason-lspconfig').setup({
                 'clangd',
                 'rust_analyzer',
                 'eslint',
+                'ts_ls',
                 'pyright',
                 'gopls',
         },
