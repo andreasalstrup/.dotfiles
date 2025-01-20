@@ -26,6 +26,8 @@ return require('packer').startup(function(use)
         use('tpope/vim-fugitive')
         use('lewis6991/gitsigns.nvim')
         use('folke/which-key.nvim')
+        use('christoomey/vim-tmux-navigator')
+
         use({
                 'folke/trouble.nvim',
                 config = function()
