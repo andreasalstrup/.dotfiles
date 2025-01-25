@@ -7,6 +7,7 @@ DEPENDENCIES=(
         "tmux"
         "clang"
         "rofi"
+        "kitty"
 ) 
 
 for d in ${DEPENDENCIES[@]};
