@@ -205,6 +205,10 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 workspace 1 output DP-2
 workspace 2 output DVI-D-0
 
+# Setup TouchPad
+exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+
 # Setup Dual monitors
 exec --no-startup-id xrandr --output DP-2 --primary --mode 2560x1440 --rate 144.00 --right-of DVI-D-0 \
                             --output DVI-D-0 --mode 1920x1080 --rate 144.00

@@ -7,6 +7,7 @@ DEPENDENCIES=(
         "tmux"
         "clang"
         "rofi"
+        "xinput"
         "i3"
         "kitty"
         "polybar"
