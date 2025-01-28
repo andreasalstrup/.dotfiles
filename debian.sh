@@ -8,6 +8,8 @@ DEPENDENCIES=(
         "clang"
         "rofi"
         "xinput"
+        "pulseaudio"
+        "brightnessctl"
         "i3"
         "kitty"
         "polybar"
