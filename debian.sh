@@ -7,7 +7,10 @@ DEPENDENCIES=(
         "tmux"
         "clang"
         "rofi"
+        "i3"
         "kitty"
+        "polybar"
+        "flameshot"
 ) 
 
 for d in ${DEPENDENCIES[@]};
