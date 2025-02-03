@@ -11,6 +11,9 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:monospace 8
 
+# Set background color
+exec --no-startup-id xsetroot -solid "#1e1e2e"
+
 # Set window style #border #background #text #indicator
 client.focused     #ffffff #b4befe #ffffff #74c7ec
 # Set window border
@@ -41,14 +44,14 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks 
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -RTMIN+1 i3blocks
 
 # Adjust screen brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5% && pkill -RTMIN+2 i3blocks
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- && pkill -RTMIN+2 i3blocks
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -66,6 +69,12 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher) bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+d exec --no-startup-id dmenu_run -nb '#282a36' -nf '#f8f8f2' -sb '#bd93f9' -sf '#282a36' -b
 bindsym Ctrl+space exec /home/novem/.local/scripts/toggle-rofi.sh
+
+workspace_layout stacking
+
+# Fix not being able to type into browser windows right away
+focus_on_window_activation focus
+focus_follows_mouse yes
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -195,17 +204,27 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Open settings
-exec --no-startup-id env XDG_CURRENT_DESKTOP=GNOME gnome-control-center
+# exec --no-startup-id env XDG_CURRENT_DESKTOP=GNOME gnome-control-center
 bindsym $mod+g exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-# bar {
-#         status_command i3status
-# }
+bar {
+        status_command i3blocks
+        tray_output primary
 
-# Start Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+        colors {
+            background #1e1e2e   # Bar background color
+            statusline #b4befe   # Default text color
+            separator #b4befe    # Separator color
+
+            # Workspace colors
+            focused_workspace #b4befe #b4befe #1e1e2e
+            inactive_workspace #1e1e2e #1e1e2e #b4befe
+            urgent_workspace #f38ba8 #f38ba8 #1e1e2e
+            active_workspace #b4befe #b4befe #1e1e2e
+    }
+}
 
 # Setup Workspaces
 workspace 1 output DP-2
