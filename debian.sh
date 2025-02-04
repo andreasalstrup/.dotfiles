@@ -8,6 +8,7 @@ DEPENDENCIES=(
         "clang"
         "rofi"
         "i3"
+        "i3blocks"
         "kitty"
         "xinput"
         "pulseaudio"
