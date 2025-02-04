@@ -31,4 +31,6 @@ do
         fi
 done
 
+~/.local/scripts/install-font.sh
+
 printf "\nSuccess!\n"
