@@ -235,8 +235,8 @@ exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapp
 exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
 
 # Setup Dual monitors
-exec --no-startup-id xrandr --output DP-2 --primary --mode 2560x1440 --rate 144.00 --right-of DVI-D-0 \
-                            --output DVI-D-0 --mode 1920x1080 --rate 144.00
+exec --no-startup-id xrandr --output DP-0 --primary --mode 2560x1440 --rate 144.00 --right-of HDMI-0 \
+                            --output HDMI-0 --mode 1920x1080 --rate 60.00
 # Take screenshot
 bindsym Print exec --no-startup-id flameshot gui
 
