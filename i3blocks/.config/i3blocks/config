@@ -5,7 +5,7 @@ interval=once
 color=#b4befe
 
 [brightness]
-command=brightnessctl g | awk -v max=$(brightnessctl m) '{printf "SCR %.0f%%\n", ($1 / max) * 100}'
+command=~/.config/i3blocks/brightness_status.sh
 signal=2
 interval=once
 color=#b4befe
