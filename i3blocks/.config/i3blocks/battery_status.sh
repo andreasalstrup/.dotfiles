@@ -11,7 +11,7 @@ if  [[ -z "$capacity" ]]; then
         exit 0
 fi
 
-if [[ "$capacity" -le 15 ]]; then
+if [[ "$capacity" -le 15 ]] && [[ "$status" != "Charging" ]]; then
     echo -e "${RED}${capacity}%${RESET}"
 elif [[ "$status" == "Charging" ]]; then 
     echo -e "${GREEN}${capacity}%${RESET}"
