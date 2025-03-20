@@ -1,3 +1,8 @@
+[display]
+align=center
+interval=once
+command=~/.config/i3blocks/display_status.sh
+
 [volume]
 command=wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{if ($3 == "[MUTED]") print "VOL Muted"; else printf "VOL %.0f%%\n", $2 * 100}'
 signal=1
