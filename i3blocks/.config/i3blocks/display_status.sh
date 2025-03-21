@@ -5,6 +5,7 @@ DISPLAYS=$(xrandr --query | grep " connected" | grep -v "$PRIMARY" | awk '{print
 DISPLAYS=($DISPLAYS)
 if [[ ${#DISPLAYS[@]} -ne 1 ]];
 then
+    xrandr --auto
     notify-send -i dialog-information "Display" "${#DISPLAYS[@]} connected"
     exit 0
 fi
