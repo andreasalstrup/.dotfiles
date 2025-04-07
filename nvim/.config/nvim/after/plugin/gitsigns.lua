@@ -13,6 +13,8 @@ require('gitsigns').setup({
                 map('n', '<leader>hb', function() gitsigns.blame_line { full = true } end, { desc = 'Blame line (full)' })
                 map('n', '<leader>hd', gitsigns.diffthis, { desc = 'View diff for current file' })
                 map('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'Preview hunk' })
+                map('n', '<leader>hr', gitsigns.reset_hunk, { desc = 'Reset hunk' })
+                map('n', '<leader>hs', gitsigns.stage_hunk, { desc = 'Stage hunk' })
                 map('n', '<leader>td', gitsigns.toggle_deleted, { desc = 'Toggle deleted lines' })
         end
 })
