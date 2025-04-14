@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PRIMARY=$(xrandr --query | grep primary | awk '{print $1}')
+PRIMARY=$(xrandr --query | awk '/ connected / && /DP/ { if(!first)first=$1; if($3=="primary"){print $1;found=1;exit} }; END{if(!found)print first}')
 DISPLAYS=$(xrandr --query | grep " connected" | grep -v "$PRIMARY" | awk '{print $1}') 
 DISPLAYS=($DISPLAYS)
 if [[ ${#DISPLAYS[@]} -ne 1 ]];
@@ -13,8 +13,9 @@ fi
 # Read stored position
 POSITION=$(cat /var/tmp/i3blocks/displays  2>/dev/null)
 case "$POSITION" in
-    left) OUTPUT="<display" ;;
+    left)  OUTPUT="<display" ;;
     right) OUTPUT="display>" ;;
+    *)     OUTPUT="display>" ;;
 esac
 
 # Update

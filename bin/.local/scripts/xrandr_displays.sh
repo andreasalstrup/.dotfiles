@@ -7,7 +7,7 @@ then
     exit 1
 fi
 
-PRIMARY=$(xrandr --query | grep primary | awk '{print $1}')
+PRIMARY=$(xrandr --query | awk '/ connected / && /DP/ { if(!first)first=$1; if($3=="primary"){print $1;found=1;exit} }; END{if(!found)print first}')
 DISPLAYS=$(xrandr --query | grep " connected" | grep -v "$PRIMARY" | awk '{print $1}') 
 
 xrandr --auto
