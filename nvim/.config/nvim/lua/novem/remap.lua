@@ -28,3 +28,7 @@ vim.keymap.set("t", "<esc>", [[<C-\><C-n>]],
 
 -- Diagnostics
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { noremap = true })
+
+-- Buffer
+vim.keymap.set('n', '<leader>r', ':e!<CR>',
+        { noremap = true, silent = true, desc = "Reload and discard unsaved changes" })
