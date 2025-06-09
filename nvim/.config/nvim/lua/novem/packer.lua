@@ -52,6 +52,14 @@ return require('packer').startup(function(use)
                 requires = { { 'nvim-tree/nvim-web-devicons' } }
         }
 
+        use {
+                'nvim-lualine/lualine.nvim',
+                requires = {
+                        { 'nvim-tree/nvim-web-devicons', opt = true },
+                        { 'arkav/lualine-lsp-progress' }
+                }
+        }
+
         -- lsp-zero
         --use({'VonHeikemen/lsp-zero.nvim', branch = 'v4.x'})
         --use({'neovim/nvim-lspconfig'})
