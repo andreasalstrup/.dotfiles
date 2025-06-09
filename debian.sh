@@ -3,7 +3,6 @@
 DEPENDENCIES=(
         "sed"
         "stow"
-        "nvim"
         "tmux"
         "clang"
         "rofi"
@@ -32,5 +31,6 @@ do
 done
 
 ~/.local/scripts/install-font.sh
+~/.local/scripts/install-nvim.sh
 
 printf "\nSuccess!\n"
