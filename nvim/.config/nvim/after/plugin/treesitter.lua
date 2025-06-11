@@ -37,4 +37,5 @@ require 'nvim-treesitter.configs'.setup {
         },
 }
 
+-- :TSUpdate
 require('nvim-treesitter.install').update({ with_sync = true })
