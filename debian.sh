@@ -20,7 +20,7 @@ for d in ${DEPENDENCIES[@]};
 do
         if ! command -v $d 2>&1>/dev/null
         then
-                apt install $d
+                sudo apt install $d
                 printf "\n$d installed\n"
                 echo "*************************"
         else
@@ -32,5 +32,7 @@ done
 
 ~/.local/scripts/install-font.sh
 ~/.local/scripts/install-nvim.sh
+
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 printf "\nSuccess!\n"
