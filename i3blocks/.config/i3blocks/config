@@ -20,6 +20,11 @@ command=hostname -I | awk '{print $1}'
 interval=once
 color=#b4befe
 
+[date]
+command=date +"%a %d-%m-%y Week %V"
+interval=once
+color=#b4befe
+
 [time]
 command=date +%T
 interval=10
