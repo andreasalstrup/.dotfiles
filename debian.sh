@@ -3,6 +3,9 @@
 DEPENDENCIES=(
         "sed"
         "stow"
+        "git"
+        "curl"
+        "zsh"
         "tmux"
         "clang"
         "rofi"
@@ -29,6 +32,7 @@ do
         fi
 done
 
+~/.local/scripts/install-ohmyzsh.sh
 ~/.local/scripts/install-kitty.sh
 ~/.local/scripts/install-font.sh
 ~/.local/scripts/install-nvim.sh
