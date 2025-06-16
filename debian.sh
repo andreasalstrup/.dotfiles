@@ -8,7 +8,6 @@ DEPENDENCIES=(
         "rofi"
         "i3"
         "i3blocks"
-        "kitty"
         "xinput"
         "pulseaudio"
         "brightnessctl"
@@ -30,9 +29,9 @@ do
         fi
 done
 
+~/.local/scripts/install-kitty.sh
 ~/.local/scripts/install-font.sh
 ~/.local/scripts/install-nvim.sh
-
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+~/.local/scripts/install-rust.sh
 
 printf "\nSuccess!\n"
