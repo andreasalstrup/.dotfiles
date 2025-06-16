@@ -3,7 +3,8 @@ require('lualine').setup({
                 lualine_a = {},
                 -- lualine_b = {},
                 lualine_c = {
-                        'lsp_progress'
+                        { 'filename',     path = 1,        color = 'normal' },
+                        { 'lsp_progress', color = 'normal' },
                 },
                 lualine_x = {},
                 -- lualine_y = {},
