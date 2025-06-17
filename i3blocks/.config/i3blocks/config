@@ -15,8 +15,8 @@ signal=2
 interval=once
 color=#b4befe
 
-[ip]
-command=hostname -I | awk '{print $1}'
+[interface]
+command=~/.config/i3blocks/interface_status.sh
 interval=once
 color=#b4befe
 
