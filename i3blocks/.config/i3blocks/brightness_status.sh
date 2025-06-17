@@ -1,10 +1,10 @@
 #!/bin/bash
 
-max=$(brightnessctl m)
+MAX=$(brightnessctl m)
 
-if [[ "$max" -eq 1 ]]; then
+if [[ "$MAX" -eq 1 ]]; then
         exit 0
 fi
 
-current=$(brightnessctl g | awk -v max=$max '{printf "SCR %.0f%%\n", ($1 / max) * 100}')
-echo $current
+CURRENT=$(brightnessctl g | awk -v max=$max '{printf "SCR %.0f%%\n", ($1 / MAX) * 100}')
+echo $CURRENT
