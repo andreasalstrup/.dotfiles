@@ -36,3 +36,7 @@ interval=10
 markup=pango
 color=#b4befe
 
+[public ip]
+command=~/.config/i3blocks/ifconfig_status.sh
+interval=once
+color=#b4befe
