@@ -66,6 +66,9 @@ bindsym $mod+Return exec ~/.local/kitty.app/bin/kitty
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# kill kill selected window
+bindsym --release $mod+Shift+x exec xkill
+
 # start dmenu (a program launcher) bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+d exec --no-startup-id dmenu_run -nb '#282a36' -nf '#f8f8f2' -sb '#bd93f9' -sf '#282a36' -b
 bindsym Ctrl+space exec /home/novem/.local/scripts/toggle-rofi.sh
