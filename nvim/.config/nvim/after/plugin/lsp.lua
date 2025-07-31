@@ -96,5 +96,6 @@ lsp.configure('lua_ls', {
 lsp.setup()
 
 vim.diagnostic.config({
-        virtual_text = true
+        virtual_text = true,
+        update_in_insert = true,
 })

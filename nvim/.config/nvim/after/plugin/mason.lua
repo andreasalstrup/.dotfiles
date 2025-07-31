@@ -25,3 +25,11 @@ require('lspconfig').lua_ls.setup({
                 }
         }
 })
+
+require('lspconfig').clangd.setup({
+        cmd = {
+                "clangd",
+                "--clang-tidy",
+                "--fallback-style=LLVM",
+        },
+})
