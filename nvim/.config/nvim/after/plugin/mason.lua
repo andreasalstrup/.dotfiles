@@ -18,7 +18,7 @@ require('mason-lspconfig').setup({
                         require('lspconfig').clangd.setup({
                                 cmd = {
                                         "clangd",
-                                        "--clang-tidy=false", -- dont want show double diagnostics
+                                        "--clang-tidy=false", -- dont want double diagnostics
                                         "--fallback-style=LLVM",
                                 },
                         })
