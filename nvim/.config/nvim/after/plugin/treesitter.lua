@@ -19,6 +19,9 @@ require 'nvim-treesitter.configs'.setup {
                 "markdown_inline"
         },
 
+        ignore_install = {},
+        modules = {},
+
         -- Install parsers synchronously (only applied to `ensure_installed`)
         sync_install = false,
 
