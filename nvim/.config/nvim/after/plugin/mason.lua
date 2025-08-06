@@ -13,28 +13,31 @@ require('mason-lspconfig').setup({
                 function(server_name)
                         require('lspconfig')[server_name].setup({})
                 end,
+
+                clangd = function()
+                        require('lspconfig').clangd.setup({
+                                cmd = {
+                                        "clangd",
+                                        "--clang-tidy=false", -- dont want show double diagnostics
+                                        "--fallback-style=LLVM",
+                                },
+                        })
+                end,
+
+                lua_ls = function()
+                        require('lspconfig').lua_ls.setup({
+                                settings = {
+                                        Lua = {
+                                                diagnostics = {
+                                                        globals = { 'vim' },
+                                                },
+                                        },
+                                },
+                        })
+                end,
         }
 })
 
 vim.api.nvim_create_user_command('MasonUpdateAll', function()
         require('mason.api.command').MasonUpdate()
 end, {})
-
-
-require('lspconfig').lua_ls.setup({
-        settings = {
-                Lua = {
-                        diagnostics = {
-                                globals = { 'vim' }
-                        }
-                }
-        }
-})
-
-require('lspconfig').clangd.setup({
-        cmd = {
-                "clangd",
-                "--clang-tidy",
-                "--fallback-style=LLVM",
-        },
-})
