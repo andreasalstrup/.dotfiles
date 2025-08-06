@@ -79,6 +79,9 @@ cmp.setup({
         }),
 })
 
+---
+-- Language setup
+---
 lsp.configure('lua_ls', {
         settings = {
                 Lua = {
@@ -90,6 +93,14 @@ lsp.configure('lua_ls', {
                                 checkThirdParty = false,
                         },
                 },
+        },
+})
+
+lsp.configure('clangd', {
+        cmd = {
+                "clangd",
+                "--clang-tidy=false", -- dont want double diagnostics
+                "--fallback-style=LLVM",
         },
 })
 
