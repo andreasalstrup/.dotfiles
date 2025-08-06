@@ -1,5 +1,7 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
+-- ~/.local/share/nvim/site/pack/packer/start/
+
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -87,4 +89,6 @@ return require('packer').startup(function(use)
                         { 'rafamadriz/friendly-snippets' },
                 }
         }
+
+        use { 'mfussenegger/nvim-dap', 'jay-babu/mason-nvim-dap.nvim' }
 end);
