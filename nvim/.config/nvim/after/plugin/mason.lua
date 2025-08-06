@@ -16,6 +16,11 @@ require('mason-lspconfig').setup({
         }
 })
 
+vim.api.nvim_create_user_command('MasonUpdateAll', function()
+        require('mason.api.command').MasonUpdate()
+end, {})
+
+
 require('lspconfig').lua_ls.setup({
         settings = {
                 Lua = {
