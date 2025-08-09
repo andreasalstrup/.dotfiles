@@ -3,6 +3,7 @@
 if ! command -v stow 2>&1>/dev/null
 then
     echo "stow not installed"
+    sudo apt install -y stow 
     exit 1
 fi
 

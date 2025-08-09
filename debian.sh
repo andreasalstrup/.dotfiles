@@ -2,8 +2,8 @@
 
 DEPENDENCIES=(
         "sed"
-        "stow"
         "git"
+        "cmake"
         "curl"
         "zsh"
         "tmux"
@@ -22,7 +22,7 @@ for d in ${DEPENDENCIES[@]};
 do
         if ! command -v $d 2>&1>/dev/null
         then
-                sudo apt install $d
+                sudo apt install -y $d
                 printf "\n$d installed\n"
                 echo "*************************"
         else
@@ -32,10 +32,11 @@ do
         fi
 done
 
-~/.local/scripts/install-ohmyzsh.sh
 ~/.local/scripts/install-kitty.sh
 ~/.local/scripts/install-font.sh
 ~/.local/scripts/install-nvim.sh
 ~/.local/scripts/install-rust.sh
+~/.local/scripts/install-nvm.sh
+~/.local/scripts/install-ohmyzsh.sh
 
 printf "\nSuccess!\n"
