@@ -32,6 +32,8 @@ do
         fi
 done
 
+echo -e "\nsource ~/.zshrc_aliases" >> ~/.zshrc
+
 ~/.local/scripts/install-kitty.sh
 ~/.local/scripts/install-font.sh
 ~/.local/scripts/install-nvim.sh
