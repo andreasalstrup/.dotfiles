@@ -6,12 +6,14 @@ if [[ -n "$is_installed" ]]; then
         exit 0
 fi
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+(sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended)
+
+ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 
 # Install spaceship
-git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-ln -i -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-sed -e 's/^ZSH_THEME=".*"/ZSH_THEME="spaceship"/g' \
+sudo git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+sudo ln -i -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+sed -i -e 's/^ZSH_THEME=".*"/ZSH_THEME="spaceship"/g' \
     -e '/^ZSH_THEME="spaceship"/a\
 SPACESHIP_PROMPT_ASYNC=false\nSPACESHIP_NODE_SHOW=false' ~/.zshrc
 

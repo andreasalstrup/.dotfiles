@@ -35,9 +35,9 @@ done
 ~/.local/scripts/install-kitty.sh
 ~/.local/scripts/install-font.sh
 ~/.local/scripts/install-nvim.sh
+~/.local/scripts/install-ohmyzsh.sh
 ~/.local/scripts/install-rust.sh
 ~/.local/scripts/install-go.sh
 ~/.local/scripts/install-nvm.sh
-~/.local/scripts/install-ohmyzsh.sh
 
 printf "\nSuccess!\n"
