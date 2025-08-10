@@ -32,7 +32,7 @@ do
         fi
 done
 
-echo -e "\nsource ~/.zshrc_aliases" >> ~/.zshrc
+echo -e "\nsource $HOME/.zshrc_aliases" >> "$HOME/.zshrc"
 
 ~/.local/scripts/install-kitty.sh
 ~/.local/scripts/install-font.sh
