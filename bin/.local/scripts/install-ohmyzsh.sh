@@ -29,3 +29,5 @@ plugins=(\
 )\
 \
 source $ZSH/oh-my-zsh.sh' ~/.zshrc
+
+sudo chsh -s $(which zsh)
