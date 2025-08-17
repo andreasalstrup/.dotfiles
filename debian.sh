@@ -11,6 +11,7 @@ DEPENDENCIES=(
         "rofi"
         "i3"
         "i3blocks"
+        "xclip"
         "xinput"
         "pulseaudio"
         "brightnessctl"
