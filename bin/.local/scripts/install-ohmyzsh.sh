@@ -15,7 +15,21 @@ sudo git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CU
 sudo ln -i -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 sed -i -e 's/^ZSH_THEME=".*"/ZSH_THEME="spaceship"/g' \
     -e '/^ZSH_THEME="spaceship"/a\
-SPACESHIP_PROMPT_ASYNC=false\nSPACESHIP_NODE_SHOW=false' ~/.zshrc
+\
+DISABLE_UPDATE_PROMPT=true\
+\
+SPACESHIP_PROMPT_ASYNC=true\
+SPACESHIP_NODE_SHOW=false\
+\
+# Only load what you actually use\
+SPACESHIP_PROMPT_ORDER=(\
+    time\
+    user\
+    dir\
+    git\
+    line_sep\
+    char\
+)' ~/.zshrc
 
 # Install plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -27,6 +41,8 @@ plugins=(\
   zsh-autosuggestions\
   zsh-syntax-highlighting # Always last\
 )\
+\
+ZSH_AUTOSUGGEST_USE_ASYNC=1\
 \
 source $ZSH/oh-my-zsh.sh' ~/.zshrc
 
