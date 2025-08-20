@@ -27,6 +27,7 @@ SPACESHIP_PROMPT_ORDER=(\
     user\
     dir\
     git\
+    python\
     line_sep\
     char\
 )' ~/.zshrc
