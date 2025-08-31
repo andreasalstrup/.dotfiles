@@ -5,6 +5,7 @@ DEPENDENCIES=(
         "git"
         "cmake"
         "curl"
+        "ripgrep"
         "zsh"
         "tmux"
         "clang"
