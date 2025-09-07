@@ -38,6 +38,7 @@ echo -e "\nsource ~/.zshrc_aliases" >> ~/.zshrc
 
 ~/.local/scripts/install-kitty.sh
 ~/.local/scripts/install-font.sh
+~/.local/scripts/install-tpm.sh
 ~/.local/scripts/install-nvim.sh
 ~/.local/scripts/install-ohmyzsh.sh
 ~/.local/scripts/install-rust.sh
