@@ -36,7 +36,14 @@ interval=10
 markup=pango
 color=#b4befe
 
+[layout]
+command=~/.config/i3blocks/setxkbmap_status.sh
+interval=once
+color=#b4befe
+markup=pango
+
 [public ip]
 command=~/.config/i3blocks/ifconfig_status.sh
 interval=once
 color=#b4befe
+markup=pango
