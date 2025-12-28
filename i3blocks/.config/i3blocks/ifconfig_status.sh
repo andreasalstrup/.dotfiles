@@ -1,4 +1,4 @@
 #!/bin/bash
 
 ISO=$(curl -s ifconfig.co/country-iso)
-echo $ISO
+echo "<b>🌐︎</b> $ISO"
