@@ -243,3 +243,5 @@ exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natu
 # Take screenshot
 bindsym Print exec --no-startup-id flameshot gui
 
+# Set keybord layout
+exec --no-startup-id setxkbmap -layout us -variant altgr-intl
