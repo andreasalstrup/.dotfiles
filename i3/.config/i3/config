@@ -243,5 +243,12 @@ exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natu
 # Take screenshot
 bindsym Print exec --no-startup-id flameshot gui
 
-# Set keybord layout
-exec --no-startup-id setxkbmap -layout us -variant altgr-intl
+# Set keybord layout from /etc/default/keybord at i3 startup
+exec_always --no-startup-id sh -c 'sleep 1; ~/.local/scripts/setxkbmap.sh'
+# sudo dpkg-reconfigure keyboard-configuration
+# cat /etc/default/keyboard
+# XKBMODEL="pc105"
+# XKBLAYOUT="us"
+# XKBVARIANT="altgr-intl"
+# BACKSPACE="guess"
+
