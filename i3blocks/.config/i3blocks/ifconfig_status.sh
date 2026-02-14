@@ -4,7 +4,7 @@ ISO=$(curl -s ifconfig.co/country-iso)
 
 if [[ ${ISO} ]];
 then
-    echo "<b>🌐︎</b> $ISO"
+    echo "$ISO"
 else
-    echo "<span><b>🌐︎ ¬</b></span>"
+    echo "¬"
 fi
