@@ -96,11 +96,15 @@ lsp.configure('lua_ls', {
         },
 })
 
+local clangd_bin = vim.fn.getenv('CLANGD') ~= vim.NIL
+    and vim.fn.getenv('CLANGD')
+    or 'clangd'
+
 lsp.configure('clangd', {
         cmd = {
-                "clangd",
-                "--clang-tidy=false", -- dont want double diagnostics
-                "--fallback-style=LLVM",
+                clangd_bin,
+                '--clang-tidy=false',
+                '--fallback-style=google',
         },
 })
 
