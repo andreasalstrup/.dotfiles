@@ -254,3 +254,4 @@ exec_always --no-startup-id sh -c 'sleep 1; ~/.local/scripts/setxkbmap.sh'
 # XKBVARIANT="altgr-intl"
 # BACKSPACE="guess"
 
+exec --no-startup-id i3-msg restart
