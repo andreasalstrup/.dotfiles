@@ -8,6 +8,7 @@ require('mason-lspconfig').setup({
                 'ts_ls',
                 'pyright',
                 'gopls',
+                'nil_ls',
         },
         handlers = {
                 function(server_name)
