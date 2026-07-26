@@ -1,12 +1,11 @@
 ---
--- LSP configuration (Neovim 0.11+ native API, no lsp-zero)
+-- LSP configuration
 ---
-
--- Keymaps applied whenever any LSP server attaches
-vim.api.nvim_create_autocmd("LspAttach", {
+vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(args)
-                local opts = { buffer = args.buf }
-
+                local bufnr = args.buf
+                local opts = { buffer = bufnr }
                 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>',
                         vim.tbl_extend("force", opts, { desc = "Show Hover Information" }))
 
@@ -39,6 +38,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end,
 })
 
+vim.lsp.config('*', {
+        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
+
 ---
 -- Autocompletion setup
 ---
@@ -60,6 +63,7 @@ cmp.setup({
                                 fallback()
                         end
                 end, { 'c', 's', 'i' }),
+
                 ['<S-Tab>'] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                                 cmp.select_prev_item()
@@ -67,19 +71,15 @@ cmp.setup({
                                 fallback()
                         end
                 end, { 'c', 's', 'i' }),
+
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
         }),
 })
 
 ---
--- Language server configuration
+-- Language setup
 ---
-
--- Shared capabilities: advertise nvim-cmp completion support to all servers
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
 vim.lsp.config('lua_ls', {
-        capabilities = capabilities,
         settings = {
                 Lua = {
                         diagnostics = {
@@ -98,7 +98,6 @@ local clangd_bin = vim.fn.getenv('CLANGD') ~= vim.NIL
     or 'clangd'
 
 vim.lsp.config('clangd', {
-        capabilities = capabilities,
         cmd = {
                 clangd_bin,
                 '--clang-tidy=false',
@@ -106,14 +105,9 @@ vim.lsp.config('clangd', {
         },
 })
 
--- Enable configured servers
 vim.lsp.enable({ 'lua_ls', 'clangd' })
 
----
--- Diagnostics
----
 vim.diagnostic.config({
         virtual_text = true,
         update_in_insert = true,
-        signs = true, -- replaces lsp-zero's sign_text = true
 })

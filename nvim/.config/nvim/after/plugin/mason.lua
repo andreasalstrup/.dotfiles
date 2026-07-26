@@ -10,11 +10,12 @@ require('mason-lspconfig').setup({
                 'gopls',
                 'nil_ls',
         },
-        handlers = {
-                function(server_name)
-                        require('lspconfig')[server_name].setup({})
-                end,
-        }
+        automatic_enable = true
+        -- handlers = {
+        --         function(server_name)
+        --                 require('lspconfig')[server_name].setup({})
+        --         end,
+        -- }
 })
 
 vim.api.nvim_create_user_command('MasonUpdateAll', function()

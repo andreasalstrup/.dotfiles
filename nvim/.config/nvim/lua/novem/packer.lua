@@ -72,10 +72,11 @@ return require('packer').startup(function(use)
         --use({'hrsh7th/cmp-nvim-lsp'})
 
         use {
-                'VonHeikemen/lsp-zero.nvim', branch = 'v4.x',
+                -- 'VonHeikemen/lsp-zero.nvim', branch = 'v4.x',
+                'neovim/nvim-lspconfig',
                 requires = {
                         -- LSP Support
-                        { 'neovim/nvim-lspconfig' },
+                        -- { 'neovim/nvim-lspconfig' },
                         { 'williamboman/mason.nvim' },
                         { 'williamboman/mason-lspconfig.nvim' },
 
