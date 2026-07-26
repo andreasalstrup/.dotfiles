@@ -1,10 +1,13 @@
 { _config, pkgs, ... }:
 
+let
+  local = import ./local.nix;
+in
 {
   # home manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "novem";
-  home.homeDirectory = "/home/novem";
+  home.username = local.username;
+  home.homeDirectory = local.homeDirectory;
 
   # this value determines the home manager release that your configuration is
   # compatible with. this helps avoid breakage when a new home manager release
@@ -19,7 +22,6 @@
   # environment.
   home.packages = with pkgs; [
     fzf
-    neovim
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -34,15 +36,18 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
-  #
+
+  services.dunst = {
+    enable = true;
+  };
 
   programs.git = {
     enable = true;
 
     settings = {
       user = {
-        name = "andreasalstrup"; # builtins.getEnv "MY_HOST"
-        email = "andreas-contact@pm.me"; # builtins.getEnv "MY_HOST"
+        name = local.gitName;
+        email = local.gitEmail;
       };
     };
   };
