@@ -26,8 +26,13 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
+
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -56,10 +61,11 @@
 
   # Nvidia GPU
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     modesetting.enable = true;
+    open = true; # open-source kernel module
   };
 
   # This value determines the NixOS release from which the default

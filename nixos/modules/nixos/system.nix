@@ -50,7 +50,7 @@
     tmux
     rofi
     xclip
-    xinput
+    # xinput
     pulseaudio
     brightnessctl
     flameshot

@@ -9,8 +9,8 @@
   home.homeDirectory = "/home/yourusername";
   home.stateVersion = "24.11";
 
-  xkb.layout = "us";
-  xkb.variant = "";
+  # xkb.layout = "us";
+  # xkb.variant = "";
 
   xresources.properties = {
     "Xcursor.size" = 16;
