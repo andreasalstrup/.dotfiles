@@ -7,7 +7,7 @@ sudo nixos-rebuild switch --flake .#desktop
 ```
 
 ```sh
-nix flake check "github:andreasalstrup/.dotfiles/nixos?dir=nixos" --experimental-features 'nix-command flakes'
+nix flake check "github:andreasalstrup/.dotfiles/nixos?dir=nixos" --experimental-features 'nix-command flakes' --refresh
 nix flake show "github:andreasalstrup/.dotfiles/nixos?dir=nixos" --extra-experimental-features 'nix-command flakes'
 sudo nixos-install --flake "github:andreasalstrup/.dotfiles/nixos?dir=nixos#desktop"
 ```
