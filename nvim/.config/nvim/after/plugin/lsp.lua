@@ -105,7 +105,16 @@ vim.lsp.config('clangd', {
         },
 })
 
-vim.lsp.enable({ 'lua_ls', 'clangd' })
+-- vim.lsp.enable({ 'lua_ls', 'clangd' })
+vim.lsp.enable({
+        'rust_analyzer', -- rust-analyzer
+        'gopls',     -- gopls
+        'ts_ls',     -- typescript-language-server
+        'lua_ls',    -- lua-language-server
+        'clangd',    -- clang-tools
+        'pyright',   -- pyright
+        'nil_ls',    -- nil
+})
 
 vim.diagnostic.config({
         virtual_text = true,
