@@ -1,3 +1,8 @@
+local is_nixos = vim.uv.fs_stat('/etc/NIXOS') ~= nil;
+if is_nixos then
+        return
+end
+
 require('mason-nvim-dap').setup({
         ensure_installed = {
                 'codelldb',             -- c, c++, rust

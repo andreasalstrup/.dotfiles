@@ -1,3 +1,8 @@
+local is_nixos = vim.uv.fs_stat('/etc/NIXOS') ~= nil;
+if is_nixos then
+        return
+end
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
         ensure_installed = {
