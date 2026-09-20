@@ -83,7 +83,7 @@ vim.lsp.config('lua_ls', {
         settings = {
                 Lua = {
                         diagnostics = {
-                                globals = { 'vim' },
+                                globals = { 'vim', 'nixCats' },
                         },
                         workspace = {
                                 library = vim.api.nvim_get_runtime_file("", true),
@@ -105,8 +105,13 @@ vim.lsp.config('clangd', {
         },
 })
 
--- vim.lsp.enable({ 'lua_ls', 'clangd' })
-vim.lsp.enable({
+if nixCats ~= nil then
+  if nixCats('lsp') then
+    vim.cmd.packadd('nvim-lspconfig')
+    vim.lsp.enable(nixCats.extra('servers'))
+  end
+else
+  vim.lsp.enable({
     'lua_ls',
     'clangd',
     'rust_analyzer',
@@ -115,7 +120,8 @@ vim.lsp.enable({
     'pyright',
     'gopls',
     'nil_ls',
-})
+  })
+end
 
 vim.diagnostic.config({
         virtual_text = true,
