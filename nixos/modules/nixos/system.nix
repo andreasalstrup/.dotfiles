@@ -5,6 +5,8 @@
   ...
 }:
 {
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # User setup
   users.users.${username} = {
     isNormalUser = true;
@@ -37,6 +39,8 @@
   };
 
   programs.tmux.enable = true;
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -46,8 +50,8 @@
     wget
     curl
     ripgrep
-    zsh
-    tmux
+    # zsh
+    # tmux
     rofi
     xclip
     # xinput
