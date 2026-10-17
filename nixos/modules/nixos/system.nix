@@ -76,4 +76,9 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  # Enable bluetooth with blueman
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
 }
