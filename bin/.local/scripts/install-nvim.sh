@@ -12,6 +12,8 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 git clone https://github.com/neovim/neovim.git
 cd neovim
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo rm -rf /usr/local/share/nvim /usr/local/lib/nvim /usr/local/bin/nvim
 sudo make install
 cd -
 sudo rm -rf neovim
