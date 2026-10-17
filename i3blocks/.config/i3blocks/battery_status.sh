@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 RED="<span color='#eba0ac'>"
 GREEN="<span color='#a6e3a1'>"

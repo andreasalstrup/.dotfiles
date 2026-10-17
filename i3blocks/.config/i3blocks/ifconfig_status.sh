@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ISO=$(curl -s ifconfig.co/country-iso)
 
