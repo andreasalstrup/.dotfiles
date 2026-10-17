@@ -34,18 +34,18 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  # services.displayManager.gdm.enable = true;
+  # services.desktopManager.gnome.enable = true;
 
   services.xserver.xkb = {
-    layout = "us";
+    layout = "dk";
     variant = "";
   };
 
   virtualisation.vmVariant = {
     virtualisation = {
-      memorySize = 16384; # MB, matches your -m 16384
-      cores = 6; # matches your -smp 6
+      memorySize = 4096; # MB, matches your -m 16384
+      cores = 2; # matches your -smp 6
       diskSize = 51200; # MB — 50G, generous root disk
       graphics = true;
       # Port forwarding equivalent to your -net user,hostfwd=tcp::2222-:22
